@@ -1,3 +1,5 @@
+//containers
+
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
 var pickedColor = pickColor();
@@ -9,6 +11,7 @@ var resetButton = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 
+//easyButton logic
 
 easyBtn.addEventListener("click", function(){
 hardBtn.classList.remove("selected");
@@ -27,6 +30,8 @@ for(i=0;i<squares.length;i++){
 }
 });
 
+//hardButton logic
+
 hardBtn.addEventListener("click", function(){
 hardBtn.classList.add("selected");
 easyBtn.classList.remove("selected");
@@ -41,7 +46,7 @@ for(i=0;i<squares.length;i++){
 
 });
 
-
+//resetButton logic
 
 resetButton.addEventListener("click", function(){
 	colors = generateRandomColors(numSquares);
@@ -56,7 +61,7 @@ resetButton.addEventListener("click", function(){
 	h1.style.backgroundColor= "#006fff";
 });
 
-
+//color logic
 
 var squares = document.querySelectorAll(".square");
 for(var i=0;i<squares.length;i++){
@@ -79,16 +84,22 @@ for(var i=0;i<squares.length;i++){
 	});
 }
 
+//change of selected color to each color
+
 function changeColors(color){
 	for(var i=0;i<squares.length;i++){
 		squares[i].style.backgroundColor = color;
 	}
 };
 
+//picking randomColors
+
 function pickColor(){
 	var random= Math.floor(Math.random() * colors.length);
 	return colors[random];
 }
+
+//generating randomColors
 
 function generateRandomColors(num){
 	var arr= [];
@@ -97,6 +108,8 @@ function generateRandomColors(num){
 	}
 	return arr
 }
+
+//generating random colors (part2)
 
 function randomColor(){
 	var r = Math.floor(Math.random() *256);
